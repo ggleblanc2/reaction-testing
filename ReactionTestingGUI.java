@@ -14,12 +14,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -69,7 +67,7 @@ public class ReactionTestingGUI implements Runnable {
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		String[] columns = { "Expected amount", "Actual Amount", "Difference" };
+		String[] columns = { "Expected Time", "Actual Time", "Difference" };
 		for (String columnName : columns) {
 			tableModel.addColumn(columnName);
 		}
@@ -181,7 +179,7 @@ public class ReactionTestingGUI implements Runnable {
 		private int paintDifference(Graphics2D g2d, int x, int y, int textDisplacement) {
 			y += textDisplacement;
 			double difference = model.getCurrentReaction().getAbsoluteDifference();
-			String differenceTimeString = "Differrence:   " + String.format("%5.2f", difference);
+			String differenceTimeString = "Difference:    " + String.format("%5.2f", difference);
 			g2d.setFont(new Font(Font.MONOSPACED, Font.BOLD, 18));
 			g2d.setColor(Color.BLACK);
 			g2d.drawString(differenceTimeString, x, y);
